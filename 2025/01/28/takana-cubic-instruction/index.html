@@ -1,0 +1,821 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>TAKANA³使用说明书 - 一文集合版 | SenolyticsBlog</title><meta name="keywords" content="Unity,音游,谱面编辑器"><meta name="author" content="Senolytics"><meta name="copyright" content="Senolytics"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="TAKANA³使用说明书 - 一文集合版"><meta name="application-name" content="TAKANA³使用说明书 - 一文集合版"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="TAKANA³使用说明书 - 一文集合版"><meta property="og:url" content="http://selakz.github.io/2025/01/28/takana-cubic-instruction/index.html"><meta property="og:site_name" content="SenolyticsBlog"><meta property="og:description" content="TAKANA³ 使用说明书0.2.2 更新内容： 添加了打击音 添加了镜像以及镜像复制的功能 添加了设置默认曲线族的功能 轨道信息在只选中一条轨道时将占满整个编辑面板 部分 bug 修复和 UI 改动  另请见： 二.4 三.6 一. 项目结构1. 谱面工程一个完整的谱面工程文件夹具备如下文件："><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://selakz.github.io/img/default_cover.jpg"><meta property="article:author" content="Senolytics"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="http://selakz.github.io/img/default_cover.jpg"><meta name="description" content="TAKANA³ 使用说明书0.2.2 更新内容： 添加了打击音 添加了镜像以及镜像复制的功能 添加了设置默认曲线族的功能 轨道信息在只选中一条轨道时将占满整个编辑面板 部分 bug 修复和 UI 改动  另请见： 二.4 三.6 一. 项目结构1. 谱面工程一个完整的谱面工程文件夹具备如下文件："><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://selakz.github.io/2025/01/28/takana-cubic-instruction/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"💤放空大脑中...","backTitle":"❤能看到你回来真好~ | ."},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["✧(≖ ◡ ≖✿)"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Senolytics","link":"链接: ","source":"来源: SenolyticsBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true,
+  shortcutKey: undefined,
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'SenolyticsBlog',
+  title: 'TAKANA³使用说明书 - 一文集合版',
+  postAI: '',
+  pageFillDescription: 'TAKANA³ 使用说明书, 0.2.2 更新内容：, 一. 项目结构, 1. 谱面工程, 2. 全局设置, 3. 值得说明的内容, 二. UI, 1. 顶部栏, 2. 底部栏, 3. 时间块, 4. 右侧面板, 三. 谱面编辑, 1. Note, 2. 轨道, 3. 结点, 4. 图层, 5. 复制粘贴, 6. 镜像, 7. 其他, 四. 谱面格式, 1. 全局设置, 2. 谱面元件, 五. 附录, 1. 缓动名称-缩写-编号对照表使用说明书更新内容添加了打击音添加了镜像以及镜像复制的功能添加了设置默认曲线族的功能轨道信息在只选中一条轨道时将占满整个编辑面板部分修复和改动另请见二三一项目结构谱面工程一个完整的谱面工程文件夹具备如下文件音源文件在编辑器中展示的背景图片难度谱面文件其中难度的取值为对应文件夹其内容如下文件夹用于存放自动保存的谱面文件存储信息面板中记录的信息如乐曲名等级等存储编辑器中的部分设置如格线等谱面工程文件夹可以放在任何位置只要在打开时选中对应路径即可一个新的谱面工程文件夹内最少仅需一个文件此时会采用默认背景而其他文件将由编辑器自动生成全局设置在所在文件夹中有如下文件存储游玩相关设置如音频偏移目前尚不确定有没有用存储编辑器中一些全局设置如自动保存的时间间隔等文件夹下存有编辑器捕获到异常时输出的日志当遇到出现未处理异常请将日志汇报给作者的提示时建议保存谱面并在该文件夹中找到对应的日志根据日期找到对应文件再根据词条找到对应内容将触发方式以及日志内容发送给作者或在上提出目前最简单的触发方式是在还没加载谱面工程时向信息面板的文本框里输入内容这个就不要汇报了值得说明的内容该编辑器中所有的时间均为以毫秒为单位的整数预览界面的正中心横坐标为界面边界横坐标为游戏边界线横坐标为二顶部栏切换点选方式有单选和多选两种方式单选方式下一次点击仅选中一个元件如果元件存在重叠多次点击可以切换选择不同的元件多选方式下会选中全部在点选范围内的元件流速目前没有与本家对应偏移仅可为非负数时间底部栏撤销重做按钮也可横向格线纵向格线间隔为两个格线之间的宽度偏移为中心格线的位置当偏移为时中心格线即在预览界面的正中心创建类型也可按键切换图层详细说明见三图层音乐速度时间块当开启横向格线时在预览界面右侧的右侧白色区域内会出现与格线绑定的小方块其即为时间块当鼠标移动到某个时间块上时其会变宽此时单击有以下两种功能将对应的时间复制到剪贴板该功能可在设置面板中关闭如果在点击之前正在选中任意表示时间的输入框则点击后会将对应的时间填入该输入框内并完成编辑右侧面板信息面板点击选择文件夹按钮以打开谱面工程点击保存工程按钮或以保存谱面和设置点击难度名称切换不同难度其余输入框目前仅有展示作用编辑面板展示选中的轨道或者的信息具体内容在下一部分进行介绍音乐面板调节音乐音量音效音量以及编辑列表设置面板关于轨道初始长度的设置项当打开该项时创建的新的轨道的初始时间长度即为对应的数值否则新的轨道将默认在乐曲末尾结束三谱面编辑使用切换播放状态如果开启了左键暂停播放的设置则在预览界面左键时会强制暂停播放当仅选中一条轨道时右键即可在对应时间放置一个如果是其时间长度默认为相邻两格线的间隔左键选中若同时按住则为多选状态选中新的时将不会取消选中之前选中的注意与点选方式中的多选不同之后可以在右侧编辑栏中修改的时间也可以通过快捷键来操作以为单位调整的判定时间将判定时间吸附到上下最近的格线上对于上述操作如果在进行的同时按住则将以这种方式修改选中的的结束时间轨道右键生成一个新的轨道当纵向格线开启时轨道的左右两边默认位置为点击位置两边的格线位置当纵向格线未开启时默认宽度为左键选中轨道若同时按住则为多选状态选中新的轨道时将不会取消选中之前选中的轨道注意与点选方式中的多选不同被选中的轨道的信息会显示在右侧编辑面板中如下所示运动列表中的每一项记为元组表示时该边界的位置为到下一个时间点的运动曲线为运动列表至少应有两项因此开始和结束的项不得被删除在该编辑面板内可以以两种方式修改曲线类型输入缓动名称缩写输入缓动名称编号关于具体的缩写与编号内容请见五缓动名称缩写编号对照表实际上编辑器更希望用户可以完全用不上这个编辑面板仅靠可视化编辑即可以完成这里面的所有功能结点当仅选中一条轨道时会显示该轨道的运动轨迹上面会有圆环称为结点每个结点即对应运动列表中的每一项右键可以放置一个新的结点即生成运动列表中新的一项结点在左边界还是右边界取决于点击的位置新结点默认曲线为型曲线左键可以选中一个结点点击结点对应的曲线或结点本身都可以选中若同时按住则为多选状态选中新的结点时将不会取消选中之前选中的结点键可以切换选中的结点对应的曲线的类型仅会在当前曲线所在的曲线族内切换每个曲线族包括六种缓动方式分别为每当按键时会将选中的曲线切换为其对应的下一个曲线例如选中的曲线为则按后切换为选中的曲线为则按后切换为可以在设置面板选择启动制谱器时默认选择的曲线族可以按数字键切换当前使用的曲线族同时如果当前有选中的结点按数字键也会将该曲线切换到对应的曲线族可以按住键查看数字与曲线族的对应关系以及当前使用的曲线族结点在时间轴上的移动与类似特别的如果对开始或结束的结点进行移动会同时修改轨道的开始时间或结束时间结点在横坐标轴上的移动可通过以下快捷键来实现将结点向左或右移动的距离将结点位置吸附到左右最近的格线上图层每个轨道都属于一个图层若选中的图层并非某轨道的图层则该轨道将不会显示也不能被选中但其上的仍然会显示创建轨道时该轨道的图层将被初始化为当前选中的图层在底部栏的图层功能中可以切换轨道图层初始预设有三个图层默认装饰基础默认选中该图层时所有的轨道都会显示如果一个轨道属于该图层则选中任意图层时该轨道都会显示装饰具备的轨道将不能被设置为该图层如果一个轨道属于该图层则该轨道将不能放置基础预设的一个普通图层与新建的图层效果相同可以点击底部栏图层功能上的按钮来新建一个图层新图层的名称不能为空或与先前的图层名称相同新建图层后将默认选中该图层若希望给某一图层改名或删除某一图层请在对应的谱面文件中操作关于如何在谱面文件中修改图层请见四全局设置复制粘贴进行剪切进行复制进行普通粘贴进行原位粘贴剪切或复制的内容将会存入剪贴板中单按键查看剪贴板内容特别的对和轨道的复制如果在复制之后修改了二者的状态则粘贴时将会粘贴修改后的内容即实际上剪贴板中存放的是对对应元件的引用支持对轨道结点进行普通粘贴和原位粘贴注意无论是哪种粘贴方式都是将复制的内容中时间最早的元件的时间与当前鼠标位置对应时间对齐进行粘贴普通粘贴需在有且仅有一个轨道被选中的情况下进行将会把剪贴板中的根据时间粘贴到该轨道上原位粘贴需在没有轨道被选中的情况下进行将会把剪贴板中的粘贴到其原来所属的轨道上轨道普通粘贴除了时间改变外还将根据粘贴时鼠标所处的水平位置对轨道进行平移该水平平移的效果是当纵向格线开启时将轨道的第一个左结点吸附到鼠标所处位置左边的第一条纵向格线否则为鼠标所处位置原位粘贴仅改变时间不改变水平位置实际使用中除了时间很短的轨道外不建议使用轨道的复制粘贴而应更多考虑能否使用结点的复制粘贴结点普通粘贴会根据选中的轨道在鼠标所处时间的位置对结点位置进行水平平移适用于在不同的轨道间复制运动效果原位粘贴不进行水平平移适用于在同一个轨道上重复某一运动效果镜像在选中轨道或结点时使用将其镜像对轨道还可以使用进行镜像复制即生成一个新的与原轨道镜像的轨道而保留原轨道其他每个轨道或都有一个唯一的目前仅有标识的作用随着谱面的更新每次重新打开谱面时都可能会发生变化四谱面格式谱面读取逻辑是根据正则表达式依次读取每行的内容因此不能将多个语句放在一行中谱面由两部分组成全局设置和谱面元件二者之间用一行任意数量的分隔除此之外可以像常见的代码注释一样用开头引入行注释全局设置图层名称即参数为正整数与字符串交替每个正整数为图层的其后的字符串为该图层的名称注意图层至少从开始而分别对应预设的默认装饰基础图层可以不必严格地按递增例如可以在缺失为的图层的情况下声明为的图层但在编辑器中保存谱面时还是会将其恢复到按递增的形式在该语句中修改任意即修改图层名称删除任意正整数字符串对即删除了某一图层请保证删除后语句格式仍然正确图层顺序按照谱面文件中行的顺序为每个轨道赋予其图层注意若用到了新建的图层则该语句的上方必须有语句且声明了对应图层否则对应轨道的图层将被设为默认若参数数小于轨道数则未设置图层的轨道的图层将被设为默认若参数数大于轨道数则多余的参数将被忽略如果以后扩展出游玩模拟器的话上述两个语句在游玩时将没有作用可以删除自定义信息除此之外可以自制想要存储的信息格式为读取谱面时会把这些内容存储起来不过目前并没有什么用谱面元件轨道包含轨道的开始时间结束时间左边界的结束位置右边界的结束位置位置信息分别为轨道的左边界和右边界的运动信息该二者为绑定关系必须同时出现于行的下两行或不出现括号中的内容为运动列表的每一项依序列出要求必须在轨道的时间范围内且时间单调非减尽管可以有相同时间的两项但在逻辑实现时容易因为排序导致二者前后关系发生变化因此不建议这么做若大于轨道的开始时间则在一开始的这段时间区间内边界的位置保持为若小于轨道的结束时间则在结尾的这段时间区间内边界将会以从移动到行中记录的读取到任意行时会将该分配至其上方最近的一个行对应的轨道上五附录缓动名称缩写编号对照表除其余缓动的缩写均由两个字符构成前一个字符表示缓动类型后一个字符表示缓动方式四种缓动方式的缩写对应关系为一般似乎提到缓动时并不常有这种说法但作者认为实际写谱时也挺经常用到的所以默认加上了每种缓动类型还对应一个编号按数字键可以根据该编号切换使用的曲线族而把该编号作为十位数把缓动方式对应的数字作为个位数即得到该缓动对应的编号编号速记缓动类型根据上的顺序依次与对应并且刚好是缓动方式对应的编号即为其在曲线族数组里的下标类型缩写编号类型缩写编号实际使用时也许你会觉得这怎么跟我想象的是反过来的那你也许是对的实际运动确实与编辑器中对应的名称是反过来的这是为了与里的从视觉上相符如果你不了解对的命名可以选择在设置里勾选反转编辑器界面的缓动名称编辑器还提供了风格的编号即为内编号对应地加上对于内没有的曲线类型则简单地顺延编号风格编号仅是为熟练的人提供一个方便的途径如果你没有用过或不能熟练记得编号与曲线的对应关系建议使用风格编号以下是完整的对照表曲线名称曲线缩写风格编号风格编号',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-28 12:59:08',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/index/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Unity</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic" title="TAKANA³"><img class="back-menu-item-icon" src="/img/index/navbar/takana_icon.png" alt="TAKANA³"/><span class="back-menu-item-text">TAKANA³</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">其他</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic" title="TAKANA³"><img class="back-menu-item-icon" src="/img/index/navbar/takana_icon.png" alt="TAKANA³"/><span class="back-menu-item-text">TAKANA³</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">SenolyticsBlog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> Blogs</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 档案</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> About</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Unity/" style="font-size: 1.05rem;">Unity<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.05rem;">博客<sup>1</sup></a><a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 1.05rem;">聊天机器人<sup>1</sup></a><a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 1.05rem;">谱面编辑器<sup>1</sup></a><a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 1.05rem;">音游<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E6%A1%A3/" itemprop="url">文档</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Unity/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Unity</span></a><a class="article-meta__tags" href="/tags/%E9%9F%B3%E6%B8%B8/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>音游</span></a><a class="article-meta__tags" href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>谱面编辑器</span></a></span></div></div><h1 class="post-title" itemprop="name headline">TAKANA³使用说明书 - 一文集合版</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-01-28T04:10:07.000Z" title="发表于 2025-01-28 12:10:07">2025-01-28</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-01-28T04:59:08.013Z" title="更新于 2025-01-28 12:59:08">2025-01-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为哈尔滨"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>哈尔滨</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/default_cover.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://selakz.github.io/2025/01/28/takana-cubic-instruction/"><header><a class="post-meta-categories" href="/categories/%E6%96%87%E6%A1%A3/" itemprop="url">文档</a><a href="/tags/Unity/" tabindex="-1" itemprop="url">Unity</a><a href="/tags/%E9%9F%B3%E6%B8%B8/" tabindex="-1" itemprop="url">音游</a><a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" tabindex="-1" itemprop="url">谱面编辑器</a><h1 id="CrawlerTitle" itemprop="name headline">TAKANA³使用说明书 - 一文集合版</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Senolytics</span><time itemprop="dateCreated datePublished" datetime="2025-01-28T04:10:07.000Z" title="发表于 2025-01-28 12:10:07">2025-01-28</time><time itemprop="dateCreated datePublished" datetime="2025-01-28T04:59:08.013Z" title="更新于 2025-01-28 12:59:08">2025-01-28</time></header><h1 id="TAKANA³-使用说明书"><a href="#TAKANA³-使用说明书" class="headerlink" title="TAKANA³ 使用说明书"></a>TAKANA³ 使用说明书</h1><h2 id="0-2-2-更新内容："><a href="#0-2-2-更新内容：" class="headerlink" title="0.2.2 更新内容："></a>0.2.2 更新内容：</h2><ul>
+<li>添加了打击音</li>
+<li>添加了镜像以及镜像复制的功能</li>
+<li>添加了设置默认曲线族的功能</li>
+<li>轨道信息在只选中一条轨道时将占满整个编辑面板</li>
+<li>部分 bug 修复和 UI 改动</li>
+</ul>
+<p><strong>另请见</strong>： <strong><a href="#4-%E5%8F%B3%E4%BE%A7%E9%9D%A2%E6%9D%BF">二.4</a></strong> <strong><a href="#6-%E9%95%9C%E5%83%8F">三.6</a></strong></p>
+<h2 id="一-项目结构"><a href="#一-项目结构" class="headerlink" title="一. 项目结构"></a>一. 项目结构</h2><h3 id="1-谱面工程"><a href="#1-谱面工程" class="headerlink" title="1. 谱面工程"></a>1. 谱面工程</h3><p>一个完整的谱面工程文件夹具备如下文件：</p>
+<ol>
+<li><code>music.mp3</code> - 音源文件。</li>
+<li><code>cover.jpg</code> - 在编辑器中展示的背景图片。</li>
+<li><code>难度.dlf</code> - 谱面文件。其中难度的取值为<code>&#123;1, 2, 3, 4, 5&#125;</code>，对应 Normal - Ravage。</li>
+<li><code>Takana_Data</code> 文件夹，其内容如下：<ol>
+<li><code>AutoSave</code> 文件夹，用于存放自动保存的谱面文件。</li>
+<li><code>song.json</code>，存储信息面板中记录的信息，如乐曲名、等级等。</li>
+<li><code>setting.json</code>，存储编辑器中的部分设置，如 bpm、格线等。</li>
+</ol>
+</li>
+</ol>
+<p>谱面工程文件夹可以放在任何位置，只要在打开时选中对应路径即可。</p>
+<p>一个新的谱面工程文件夹内最少仅需 <code>music.mp3</code> 一个文件，此时会采用默认背景，而其他文件将由编辑器自动生成。</p>
+<h3 id="2-全局设置"><a href="#2-全局设置" class="headerlink" title="2. 全局设置"></a>2. 全局设置</h3><p>在 <code>TAKANA³.exe</code> 所在文件夹 <code>/TAKANA³_Data/StreamingAssets</code> 中有如下文件：</p>
+<ol>
+<li><code>music.json</code> - 存储游玩相关设置，如音频偏移，目前尚不确定（？）有没有用。</li>
+<li><code>global.json</code> - 存储编辑器中一些全局设置，如自动保存的时间间隔等。</li>
+<li><code>Logs</code> 文件夹，下存有编辑器捕获到异常时输出的日志。<strong>当遇到“出现未处理异常，请将日志汇报给作者”的提示时，建议保存谱面，并在该文件夹中找到对应的日志（根据日期找到对应文件，再根据<code>[time]</code>词条找到对应内容），将触发方式以及日志内容发送给作者或在 Github 上提出 <a target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic/issues">Issue</a> 。</strong><del>（目前最简单的触发方式是在还没加载谱面工程时向信息面板的文本框里输入内容，这个就不要汇报了）</del></li>
+</ol>
+<h3 id="3-值得说明的内容"><a href="#3-值得说明的内容" class="headerlink" title="3. 值得说明的内容"></a>3. 值得说明的内容</h3><ul>
+<li>该编辑器中所有的时间均为以毫秒为单位的整数。</li>
+<li>预览界面的正中心横坐标为 <code>0</code> ，界面边界横坐标为 <code>±5</code> ，游戏边界线横坐标为 <code>±4.5</code> 。</li>
+</ul>
+<h2 id="二-UI"><a href="#二-UI" class="headerlink" title="二. UI"></a>二. UI</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/posts/takana/main-ui.png" alt="main-ui.png"></p>
+<h3 id="1-顶部栏"><a href="#1-顶部栏" class="headerlink" title="1. 顶部栏"></a>1. 顶部栏</h3><ol>
+<li>切换点选方式：有单选和多选两种方式。单选方式下一次点击仅选中一个元件，如果元件存在重叠，多次点击可以切换选择不同的元件。多选方式下会选中全部在点选范围内的元件。</li>
+<li>流速：目前没有与本家对应。</li>
+<li>偏移：offset，仅可为非负数。</li>
+<li>时间</li>
+</ol>
+<h3 id="2-底部栏"><a href="#2-底部栏" class="headerlink" title="2. 底部栏"></a>2. 底部栏</h3><ol>
+<li>撤销&#x2F;重做按钮：也可 <strong><code>Ctrl+Z/Ctrl+Y</code></strong> 。</li>
+<li>横向格线</li>
+<li>纵向格线：间隔为两个格线之间的宽度，偏移为中心格线的位置，当偏移为 <code>0</code> 时，中心格线即在预览界面的正中心。</li>
+<li>创建类型：也可按 <code>`</code> 键切换。</li>
+<li>图层：详细说明见 <strong><a href="#4-%E5%9B%BE%E5%B1%82">三.4 图层</a></strong> 。</li>
+<li>音乐速度</li>
+</ol>
+<h3 id="3-时间块"><a href="#3-时间块" class="headerlink" title="3. 时间块"></a>3. 时间块</h3><p>当开启横向格线时，在预览界面右侧的右侧白色区域内会出现与格线绑定的小方块，其即为时间块。当鼠标移动到某个时间块上时，其会变宽，此时单击，有以下两种功能：</p>
+<ol>
+<li>将对应的时间复制到剪贴板。该功能可在设置面板中关闭。</li>
+<li>如果在点击之前正在选中任意表示时间的输入框，则点击后会将对应的时间填入该输入框内，并完成编辑。</li>
+</ol>
+<h3 id="4-右侧面板"><a href="#4-右侧面板" class="headerlink" title="4. 右侧面板"></a>4. 右侧面板</h3><ol>
+<li><strong>信息面板</strong>：点击选择文件夹按钮以打开谱面工程，点击保存工程按钮或 <code>Ctrl+S</code> 以保存谱面和设置，点击难度名称切换不同难度，其余输入框目前仅有展示作用。</li>
+<li><strong>编辑面板</strong>：展示选中的轨道或者 note 的信息。具体内容在下一部分进行介绍。</li>
+<li><strong>音乐面板</strong>：调节音乐音量、音效音量，以及编辑 bpm 列表。</li>
+<li><strong>设置面板</strong>：关于轨道初始长度的设置项：当打开该项时，创建的新的轨道的初始时间长度即为对应的数值。否则，新的轨道将默认在乐曲末尾结束。</li>
+</ol>
+<h2 id="三-谱面编辑"><a href="#三-谱面编辑" class="headerlink" title="三. 谱面编辑"></a>三. 谱面编辑</h2><p>使用 <strong><code>Q/Space</code></strong> 切换播放状态。如果开启了左键暂停播放的设置，则在预览界面左键时会强制暂停播放。</p>
+<h3 id="1-Note"><a href="#1-Note" class="headerlink" title="1. Note"></a>1. Note</h3><p>当仅选中一条轨道时， <strong><code>右键</code></strong> 即可在对应时间放置一个 Note。如果是 Hold，其时间长度默认为相邻两格线的间隔。</p>
+<p><strong><code>Shift+左键</code></strong> 选中 Note，若同时按住 <code>Ctrl</code> ，则为多选状态，选中新的 Note 时将不会取消选中之前选中的 Note（注意与点选方式中的“多选”不同）。之后可以在右侧编辑栏中修改 Note 的时间，也可以通过快捷键来操作：</p>
+<p><strong><code>W/↑ S/↓</code></strong> ：以 <code>10ms</code> 为单位调整 Note 的判定时间</p>
+<p><strong><code>Shift+W/↑ Shift+S/↓</code></strong> ：将 Note 判定时间吸附到上下最近的格线上。</p>
+<p>对于上述操作，如果在进行的同时按住 <strong><code>Alt</code></strong> ，则将以这种方式修改选中的 Hold 的结束时间。</p>
+<h3 id="2-轨道"><a href="#2-轨道" class="headerlink" title="2. 轨道"></a>2. 轨道</h3><p><strong><code>Shift+右键</code></strong> 生成一个新的轨道。当纵向格线开启时，轨道的左右两边默认位置为点击位置两边的格线位置，当纵向格线未开启时，默认宽度为 <code>2</code>。</p>
+<p><strong><code>左键</code></strong> 选中轨道。若同时按住 <strong><code>Ctrl</code></strong> ，则为多选状态，选中新的轨道时将不会取消选中之前选中的轨道（注意与点选方式中的“多选”不同）。被选中的轨道的信息会显示在右侧编辑面板中，如下所示：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/posts/takana/edit-track-content.png" alt="edit-track-content.png"></p>
+<p>运动列表中的每一项记为元组<code>(time, x, curve)</code>，表示 <code>time</code> 时该边界的位置为 <code>x</code>，到下一个时间点的运动曲线为 <code>curve</code>。运动列表至少应有两项，因此开始和结束的项不得被删除。</p>
+<p>在该编辑面板内，可以以两种方式修改曲线类型：输入缓动名称缩写、输入缓动名称编号。关于具体的缩写与编号内容，请见 <strong><a href="#%E4%BA%94-%E9%99%84%E5%BD%95">五.1 缓动名称-缩写-编号对照表</a></strong> 。</p>
+<blockquote>
+<p>实际上编辑器更希望用户可以完全用不上这个编辑面板，仅靠可视化编辑即可以完成这里面的所有功能。</p>
+</blockquote>
+<h3 id="3-结点"><a href="#3-结点" class="headerlink" title="3. 结点"></a>3. 结点</h3><p>当仅选中一条轨道时，会显示该轨道的运动轨迹，上面会有圆环，称为结点。每个结点即对应运动列表中的每一项。</p>
+<p><strong><code>Alt+右键</code></strong> 可以放置一个新的结点，即生成运动列表中新的一项。结点在左边界还是右边界取决于点击的位置。新结点默认曲线为 <code>u</code> 型曲线。</p>
+<p><strong><code>Alt+左键</code></strong> 可以选中一个结点，点击结点对应的曲线或结点本身都可以选中。若同时按住 <code>Ctrl</code>，则为多选状态，选中新的结点时将不会取消选中之前选中的结点。</p>
+<p><strong><code>Tab</code></strong> 键可以切换选中的结点对应的曲线的类型，仅会在当前曲线所在的曲线族内切换。</p>
+<p>每个曲线族包括六种缓动方式，分别为 <strong><code>[Unmove, Linear, xxxIn, xxxOut, xxxInOut, xxxOutIn]</code></strong> 。每当按 <code>Tab</code> 键时，会将选中的曲线切换为其对应的下一个曲线。例如，选中的曲线为 <code>SineIn</code> ，则按 <code>Tab</code> 后切换为 <code>SineOut</code> ，选中的曲线为 <code>BackOutIn</code> ，则按 <code>Tab</code> 后切换为 <code>Unmove</code> 。</p>
+<p>可以在设置面板选择启动制谱器时默认选择的曲线族。可以按 <strong><code>0-9 数字键</code></strong> 切换当前使用的曲线族。同时，如果当前有选中的结点，按数字键也会将该曲线切换到对应的曲线族。</p>
+<p>可以按住 <strong><code>-</code></strong> 键查看数字与曲线族的对应关系以及当前使用的曲线族。</p>
+<p>结点在时间轴上的移动与 Note 类似。特别的，如果对开始或结束的结点进行移动，会同时修改轨道的开始时间或结束时间。</p>
+<p>结点在横坐标轴上的移动可通过以下快捷键来实现：</p>
+<p><strong><code>A/← D/→</code></strong> ：将结点向左或右移动 <code>0.1</code> 的距离。</p>
+<p><strong><code>Shift+A/← Shift+D/→</code></strong> ：将结点位置吸附到左右最近的格线上。</p>
+<h3 id="4-图层"><a href="#4-图层" class="headerlink" title="4. 图层"></a>4. 图层</h3><p>每个轨道都属于一个图层，若选中的图层并非某轨道的图层，则该轨道将不会显示，也不能被选中，但其上的 Note 仍然会显示。</p>
+<p>创建轨道时，该轨道的图层将被初始化为当前选中的图层。</p>
+<p>在底部栏的图层功能中，可以切换轨道图层。初始预设有三个图层：<code>默认</code> 、<code>装饰</code> 、<code>基础</code> 。</p>
+<ul>
+<li><code>默认</code> ：选中该图层时，所有的轨道都会显示。如果一个轨道属于该图层，则选中任意图层时，该轨道都会显示。</li>
+<li><code>装饰</code> ：具备 Note 的轨道将不能被设置为该图层。如果一个轨道属于该图层，则该轨道将不能放置 Note。</li>
+<li><code>基础</code> ：预设的一个普通图层，与新建的图层效果相同。</li>
+</ul>
+<p>可以点击底部栏图层功能上的“<code>+</code>”按钮来新建一个图层。新图层的名称不能为空或与先前的图层名称相同。新建图层后将默认选中该图层。</p>
+<p>若希望给某一图层改名或删除某一图层，请在对应的谱面文件中操作。关于如何在谱面文件中修改图层，请见 <strong><a href="#2-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE">四.1 全局设置</a></strong> 。</p>
+<h3 id="5-复制粘贴"><a href="#5-复制粘贴" class="headerlink" title="5. 复制粘贴"></a>5. 复制粘贴</h3><p><code>Ctrl + X</code> 进行剪切， <code>Ctrl + C</code> 进行复制，<code>Ctrl + V</code> 进行普通粘贴， <code>Ctrl + Shift + V</code> 进行原位粘贴。剪切或复制的内容将会存入剪贴板中，单按 <code>V</code> 键查看剪贴板内容。</p>
+<p>特别的，对 Hold 和轨道的复制，如果在复制之后修改了二者的状态，则粘贴时将会粘贴修改后的内容，即实际上<strong>剪贴板中存放的是对对应元件的引用</strong>。</p>
+<p>支持对 Note、轨道、结点进行普通粘贴和原位粘贴。注意，无论是哪种粘贴方式，都是将复制的内容中时间最早的元件的时间与当前鼠标位置对应时间对齐进行粘贴。</p>
+<ul>
+<li><strong>Note</strong>：</li>
+</ul>
+<p><strong>普通粘贴</strong>：需在有且仅有一个轨道被选中的情况下进行，将会把剪贴板中的 Note 根据时间粘贴到该轨道上。</p>
+<p><strong>原位粘贴</strong>：需在没有轨道被选中的情况下进行，将会把剪贴板中的 Note 粘贴到其原来所属的轨道上。</p>
+<ul>
+<li><strong>轨道</strong>：</li>
+</ul>
+<p><strong>普通粘贴</strong>：除了时间改变外，还将根据粘贴时鼠标所处的水平位置对轨道进行平移，该水平平移的效果是<strong>当纵向格线开启时，将轨道的第一个左结点吸附到鼠标所处位置左边的第一条纵向格线，否则为鼠标所处位置</strong>。</p>
+<p><strong>原位粘贴</strong>：仅改变时间，不改变水平位置。</p>
+<blockquote>
+<p>实际使用中除了时间很短的轨道外，不建议使用轨道的复制粘贴，而应更多考虑能否使用结点的复制粘贴。</p>
+</blockquote>
+<ul>
+<li><strong>结点</strong>：</li>
+</ul>
+<p><strong>普通粘贴</strong>：会根据选中的轨道在鼠标所处时间的位置对结点位置进行水平平移，适用于在不同的轨道间复制运动效果。</p>
+<p><strong>原位粘贴</strong>：不进行水平平移，适用于在同一个轨道上重复某一运动效果。</p>
+<h3 id="6-镜像"><a href="#6-镜像" class="headerlink" title="6. 镜像"></a>6. 镜像</h3><p>在选中轨道或结点时使用 <code>Ctrl + M</code> 将其镜像。</p>
+<p>对轨道，还可以使用 <code>Ctrl + Shift + M</code> 进行镜像复制，即生成一个新的与原轨道镜像的轨道，而保留原轨道。</p>
+<h3 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h3><p>每个轨道或 Note 都有一个唯一的 ID，目前仅有标识的作用。随着谱面的更新，每次重新打开谱面时，ID 都可能会发生变化。</p>
+<h2 id="四-谱面格式"><a href="#四-谱面格式" class="headerlink" title="四. 谱面格式"></a>四. 谱面格式</h2><p>谱面读取逻辑是根据正则表达式依次读取每行的内容，因此不能将多个语句放在一行中。</p>
+<p>谱面由两部分组成：全局设置和谱面元件，二者之间用一行任意数量的“<code>-</code>”分隔。</p>
+<p>除此之外，可以像常见的代码注释一样用<code>//</code>开头引入行注释。</p>
+<h3 id="1-全局设置"><a href="#1-全局设置" class="headerlink" title="1. 全局设置"></a>1. 全局设置</h3><ol>
+<li><p><strong>Offset</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">offset</span>(time);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>图层名称</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">layername</span>(layerid1, layername1, layerid2, layername2, ...);</span><br></pre></td></tr></table></figure>
+
+<p>即参数为正整数与字符串交替，每个正整数为图层的 id，其后的字符串为该图层的名称。 <strong>注意图层 id 至少从 3 开始</strong> ，而 0, 1, 2 分别对应预设的默认、装饰、基础。图层 id 可以不必严格地按 1 递增，例如可以在缺失 id 为 5 的图层的情况下声明 id 为 6 的图层，但在编辑器中保存谱面时还是会将其恢复到按 1 递增的形式。</p>
+<p>在该语句中修改任意 <code>layername</code> 即修改图层名称。删除任意正整数字符串对即删除了某一图层。请保证删除后语句格式仍然正确。</p>
+</li>
+<li><p><strong>图层顺序</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">layerorder</span>(track1layerid, track2layerid, track3layerid, ...);</span><br></pre></td></tr></table></figure>
+
+<p>按照谱面文件中 <code>track</code> 行的顺序为每个轨道赋予其图层。注意若用到了新建的图层，则该语句的上方必须有 <code>layername</code> 语句且声明了对应图层，否则对应轨道的图层将被设为默认。若参数数小于轨道数，则未设置图层的轨道的图层将被设为默认；若参数数大于轨道数，则多余的参数将被忽略。</p>
+<p>如果以后扩展出游玩模拟器的话，上述两个语句在游玩时将没有作用，可以删除。</p>
+</li>
+<li><p><strong>自定义信息</strong>：</p>
+<p>除此之外，可以自制想要存储的信息，格式为</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key</span>: value;</span><br></pre></td></tr></table></figure>
+
+<p>读取谱面时会把这些内容存储起来，不过目前并没有什么用。</p>
+</li>
+</ol>
+<h3 id="2-谱面元件"><a href="#2-谱面元件" class="headerlink" title="2. 谱面元件"></a>2. 谱面元件</h3><ol>
+<li><p><strong>轨道</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">track</span>(timeStart, timeEnd, leftPosEnd, rightPosEnd);</span><br></pre></td></tr></table></figure>
+
+<p>包含轨道的开始时间，结束时间，左边界的结束位置，右边界的结束位置。</p>
+</li>
+<li><p><strong>位置信息</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">lpos</span>(time1, x1, curve1, time2, x2, curve2, ...timeEnd, xEnd, curveEnd);</span><br><span class="line"><span class="title function_">rpos</span>(time1, x1, curve1, time2, x2, curve2, ...timeEnd, xEnd, curveEnd);</span><br></pre></td></tr></table></figure>
+
+<p>分别为轨道的左边界和右边界的运动信息。该二者为绑定关系，必须同时出现于 <code>track</code> 行的下两行或不出现。括号中的内容为运动列表的每一项依序列出。要求必须在轨道的时间范围内，且时间单调非减。尽管可以有相同时间的两项，但在逻辑实现时容易因为排序导致二者前后关系发生变化，因此不建议这么做。</p>
+<p>若 <code>time1</code> 大于轨道的开始时间，则在一开始的这段时间区间内，边界的位置保持为 <code>x1</code> 。若 <code>timeEnd</code> 小于轨道的结束时间，则在结尾的这段时间区间内，边界将会以 <code>curveEnd</code> 从 <code>xEnd</code> 移动到 <code>track</code> 行中记录的 <code>leftPosEnd</code> &#x2F; <code>rightPosEnd</code> 。</p>
+</li>
+<li><p><strong>Note</strong>：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">tap</span>(time);</span><br><span class="line"><span class="title function_">slide</span>(time);</span><br><span class="line"><span class="title function_">hold</span>(timeStart, timeEnd);</span><br></pre></td></tr></table></figure>
+
+<p>读取到任意 note 行时，会将该 note 分配至其上方最近的一个 track 行对应的轨道上。</p>
+</li>
+</ol>
+<h2 id="五-附录"><a href="#五-附录" class="headerlink" title="五. 附录"></a>五. 附录</h2><h3 id="1-缓动名称-缩写-编号对照表"><a href="#1-缓动名称-缩写-编号对照表" class="headerlink" title="1. 缓动名称-缩写-编号对照表"></a>1. 缓动名称-缩写-编号对照表</h3><p>除 <code>Unmove</code> 、 <code>Linear</code> ，其余缓动的缩写均由两个字符构成，前一个字符表示缓动类型，后一个字符表示缓动方式。四种缓动方式的缩写对应关系为 <strong><code>In - i</code>，<code>Out - o</code>，<code>InOut - a</code>，<code>OutIn - b</code></strong> 。一般似乎提到缓动时并不常有”OutIn”这种说法，但作者认为实际写谱时也挺经常用到的，所以默认加上了。</p>
+<p>每种缓动类型还对应一个编号，按数字键可以根据该编号切换使用的曲线族，而把该编号作为<strong>十位数</strong>，把缓动方式对应的数字作为<strong>个位数</strong>（ <strong><code>In - 2</code>，<code>Out - 3</code>，<code>InOut - 4</code>，<code>OutIn - 5</code></strong> ），即得到该缓动对应的编号。</p>
+<blockquote>
+<p>编号速记：缓动类型根据<a target="_blank" rel="noopener" href="https://easings.net/">Easing Functions Cheat Sheet (easings.net)</a>上的顺序依次与 1 - 0 对应，并且 2- 5 刚好是 Quad - Quint。缓动方式对应的编号即为其在曲线族数组里的下标。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>Sine</th>
+<th>Quad</th>
+<th>Cubic</th>
+<th>Quart</th>
+<th>Quint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缩写</td>
+<td>s</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>编号</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>Expo</th>
+<th>Circ</th>
+<th>Back</th>
+<th>Elastic</th>
+<th>Bounce</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缩写</td>
+<td>e</td>
+<td>c</td>
+<td>b</td>
+<td>l</td>
+<td>w</td>
+</tr>
+<tr>
+<td>编号</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>实际使用时也许你会觉得这 In、Out 怎么跟我想象的是反过来的？那你也许是对的。实际运动确实与编辑器中对应的名称是反过来的，这是为了与 Arcaea 里的 In、Out 从视觉上相符。如果你不了解 Arcaea 对 arc 的命名，可以选择在设置里勾选“反转编辑器界面的缓动名称”。</p>
+<p>编辑器还提供了 RPE 风格的编号，即为 RPE 内编号对应地加上 <code>100</code> 。对于 RPE 内没有的曲线类型，则简单地顺延编号。</p>
+<blockquote>
+<p>RPE 风格编号仅是为熟练 RPE 的人提供一个方便的途径。如果你没有用过 RPE 或不能熟练记得 RPE 编号与曲线的对应关系，建议使用 TAKANA³ 风格编号。</p>
+</blockquote>
+<p>以下是完整的对照表。</p>
+<table>
+<thead>
+<tr>
+<th>曲线名称</th>
+<th>曲线缩写</th>
+<th>TAKANA³ 风格编号</th>
+<th>RPE 风格编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unmove</td>
+<td>u</td>
+<td>x0 (x&#x3D;0,1,2,3,4,5,6,7,8,9)</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>s</td>
+<td>x1 (x&#x3D;0,1,2,3,4,5,6,7,8,9)</td>
+<td>101</td>
+</tr>
+<tr>
+<td>SineIn</td>
+<td>si</td>
+<td>12</td>
+<td>103</td>
+</tr>
+<tr>
+<td>SineOut</td>
+<td>so</td>
+<td>13</td>
+<td>102</td>
+</tr>
+<tr>
+<td>SineInOut</td>
+<td>sa</td>
+<td>14</td>
+<td>106</td>
+</tr>
+<tr>
+<td>SineOutIn</td>
+<td>sb</td>
+<td>15</td>
+<td>132</td>
+</tr>
+<tr>
+<td>QuadIn</td>
+<td>2i</td>
+<td>22</td>
+<td>105</td>
+</tr>
+<tr>
+<td>QuadOut</td>
+<td>2o</td>
+<td>23</td>
+<td>104</td>
+</tr>
+<tr>
+<td>QuadInOut</td>
+<td>2a</td>
+<td>24</td>
+<td>107</td>
+</tr>
+<tr>
+<td>QuadOutIn</td>
+<td>2b</td>
+<td>25</td>
+<td>133</td>
+</tr>
+<tr>
+<td>CubicIn</td>
+<td>3i</td>
+<td>32</td>
+<td>109</td>
+</tr>
+<tr>
+<td>CubicOut</td>
+<td>3o</td>
+<td>33</td>
+<td>108</td>
+</tr>
+<tr>
+<td>CubicInOut</td>
+<td>3a</td>
+<td>34</td>
+<td>112</td>
+</tr>
+<tr>
+<td>CubicOutIn</td>
+<td>3b</td>
+<td>35</td>
+<td>134</td>
+</tr>
+<tr>
+<td>QuartIn</td>
+<td>4i</td>
+<td>42</td>
+<td>111</td>
+</tr>
+<tr>
+<td>QuartOut</td>
+<td>4o</td>
+<td>43</td>
+<td>110</td>
+</tr>
+<tr>
+<td>QuartInOut</td>
+<td>4a</td>
+<td>44</td>
+<td>113</td>
+</tr>
+<tr>
+<td>QuartOutIn</td>
+<td>4b</td>
+<td>45</td>
+<td>135</td>
+</tr>
+<tr>
+<td>QuintIn</td>
+<td>5i</td>
+<td>52</td>
+<td>115</td>
+</tr>
+<tr>
+<td>QuintOut</td>
+<td>5o</td>
+<td>53</td>
+<td>114</td>
+</tr>
+<tr>
+<td>QuintInOut</td>
+<td>5a</td>
+<td>54</td>
+<td>130</td>
+</tr>
+<tr>
+<td>QuintOutIn</td>
+<td>5b</td>
+<td>55</td>
+<td>136</td>
+</tr>
+<tr>
+<td>ExpoIn</td>
+<td>ei</td>
+<td>62</td>
+<td>117</td>
+</tr>
+<tr>
+<td>ExpoOut</td>
+<td>eo</td>
+<td>63</td>
+<td>116</td>
+</tr>
+<tr>
+<td>ExpoInOut</td>
+<td>ea</td>
+<td>64</td>
+<td>131</td>
+</tr>
+<tr>
+<td>ExpoOutIn</td>
+<td>eb</td>
+<td>65</td>
+<td>137</td>
+</tr>
+<tr>
+<td>CircIn</td>
+<td>ci</td>
+<td>72</td>
+<td>119</td>
+</tr>
+<tr>
+<td>CircOut</td>
+<td>co</td>
+<td>73</td>
+<td>118</td>
+</tr>
+<tr>
+<td>CircInOut</td>
+<td>ca</td>
+<td>74</td>
+<td>122</td>
+</tr>
+<tr>
+<td>CircOutIn</td>
+<td>cb</td>
+<td>75</td>
+<td>138</td>
+</tr>
+<tr>
+<td>BackIn</td>
+<td>bi</td>
+<td>82</td>
+<td>121</td>
+</tr>
+<tr>
+<td>BackOut</td>
+<td>bo</td>
+<td>83</td>
+<td>120</td>
+</tr>
+<tr>
+<td>BackInOut</td>
+<td>ba</td>
+<td>84</td>
+<td>123</td>
+</tr>
+<tr>
+<td>BackOutIn</td>
+<td>bb</td>
+<td>85</td>
+<td>139</td>
+</tr>
+<tr>
+<td>ElasticIn</td>
+<td>li</td>
+<td>92</td>
+<td>125</td>
+</tr>
+<tr>
+<td>ElasticOut</td>
+<td>lo</td>
+<td>93</td>
+<td>124</td>
+</tr>
+<tr>
+<td>ElasticInOut</td>
+<td>la</td>
+<td>94</td>
+<td>129</td>
+</tr>
+<tr>
+<td>ElasticOutIn</td>
+<td>lb</td>
+<td>95</td>
+<td>140</td>
+</tr>
+<tr>
+<td>BounceIn</td>
+<td>wi</td>
+<td>02</td>
+<td>127</td>
+</tr>
+<tr>
+<td>BounceOut</td>
+<td>wo</td>
+<td>03</td>
+<td>126</td>
+</tr>
+<tr>
+<td>BounceInOut</td>
+<td>wa</td>
+<td>04</td>
+<td>128</td>
+</tr>
+<tr>
+<td>BounceOutIn</td>
+<td>wb</td>
+<td>05</td>
+<td>141</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" target="_blank" rel="noopener" href="https://github.com/Selakz" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/avatar.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/avatar.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Senolytics</div><div class="post-copyright__author_desc">Doc, Record, Essay</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://selakz.github.io/2025/01/28/takana-cubic-instruction/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://selakz.github.io/2025/01/28/takana-cubic-instruction/')">TAKANA³使用说明书 - 一文集合版</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://selakz.github.io/2025/01/28/takana-cubic-instruction/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=TAKANA³使用说明书 - 一文集合版&amp;url=http://selakz.github.io/2025/01/28/takana-cubic-instruction/&amp;pic=/img/default_cover.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://selakz.github.io" target="_blank">SenolyticsBlog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Unity/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Unity<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E9%9F%B3%E6%B8%B8/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>音游<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>谱面编辑器<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2025/01/09/selenium-bot/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SeleniumBot使用指南</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://twikoo-magic.oss-cn-hangzhou.aliyuncs.com/Arcaea/184064237.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">欢迎来到斯诺格的小站呀，希望这里的内容对你有所帮助！</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Senolytics</h1><div class="author-info__desc">Doc, Record, Essay</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Selakz" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/167945903" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TAKANA%C2%B3-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B9%A6"><span class="toc-number">1.</span> <span class="toc-text">TAKANA³ 使用说明书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-2-2-%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">0.2.2 更新内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">一. 项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B0%B1%E9%9D%A2%E5%B7%A5%E7%A8%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 谱面工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 全局设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%80%BC%E5%BE%97%E8%AF%B4%E6%98%8E%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 值得说明的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-UI"><span class="toc-number">1.3.</span> <span class="toc-text">二. UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A1%B6%E9%83%A8%E6%A0%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 顶部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BA%95%E9%83%A8%E6%A0%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 底部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%97%B6%E9%97%B4%E5%9D%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 时间块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%B3%E4%BE%A7%E9%9D%A2%E6%9D%BF"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 右侧面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91"><span class="toc-number">1.4.</span> <span class="toc-text">三. 谱面编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Note"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. Note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%A8%E9%81%93"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 轨道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E7%82%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. 结点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9B%BE%E5%B1%82"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-number">1.4.5.</span> <span class="toc-text">5. 复制粘贴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%95%9C%E5%83%8F"><span class="toc-number">1.4.6.</span> <span class="toc-text">6. 镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%85%B6%E4%BB%96"><span class="toc-number">1.4.7.</span> <span class="toc-text">7. 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%B0%B1%E9%9D%A2%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.5.</span> <span class="toc-text">四. 谱面格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 全局设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%B1%E9%9D%A2%E5%85%83%E4%BB%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 谱面元件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E9%99%84%E5%BD%95"><span class="toc-number">1.6.</span> <span class="toc-text">五. 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BC%93%E5%8A%A8%E5%90%8D%E7%A7%B0-%E7%BC%A9%E5%86%99-%E7%BC%96%E5%8F%B7%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 缓动名称-缩写-编号对照表</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/28/takana-cubic-instruction/" title="TAKANA³使用说明书 - 一文集合版"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TAKANA³使用说明书 - 一文集合版"/></a><div class="content"><a class="title" href="/2025/01/28/takana-cubic-instruction/" title="TAKANA³使用说明书 - 一文集合版">TAKANA³使用说明书 - 一文集合版</a><time datetime="2025-01-28T04:10:07.000Z" title="发表于 2025-01-28 12:10:07">2025-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/09/selenium-bot/" title="SeleniumBot使用指南"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SeleniumBot使用指南"/></a><div class="content"><a class="title" href="/2025/01/09/selenium-bot/" title="SeleniumBot使用指南">SeleniumBot使用指南</a><time datetime="2025-01-09T08:56:00.000Z" title="发表于 2025-01-09 16:56:00">2025-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/24/hello-world/" title="Hello World!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/default_cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World!"/></a><div class="content"><a class="title" href="/2024/12/24/hello-world/" title="Hello World!">Hello World!</a><time datetime="2024-12-24T03:00:00.000Z" title="发表于 2024-12-24 11:00:00">2024-12-24</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:senolytics@qq.com" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" href="tencent://message/?uin=787276422&amp;Site=&amp;Menu=yes" title="QQ"><i class="anzhiyufont anzhiyu-icon-qq"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/avatar.jpg" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/Selakz" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/167945903" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2025 By <a class="footer-bar-link" href="https://github.com/Selakz" title="Senolytics" target="_blank">Senolytics</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" title="Hexo">Hexo</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="Theme - anzhiyu">Theme - anzhiyu</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">3</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">Unity</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic" title="TAKANA³"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/navbar/takana_icon.png" alt="TAKANA³"/><span class="back-menu-item-text">TAKANA³</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">其他</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic" title="TAKANA³"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/index/navbar/takana_icon.png" alt="TAKANA³"/><span class="back-menu-item-text">TAKANA³</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> Blogs</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 档案</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> About</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Unity/" style="font-size: 0.88rem;">Unity<sup>1</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.88rem;">博客<sup>1</sup></a><a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 0.88rem;">聊天机器人<sup>1</sup></a><a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 0.88rem;">谱面编辑器<sup>1</sup></a><a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 0.88rem;">音游<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7015470762" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/playlist?id=7015470762&amp;uct2=U2FsdGVkX19KK8/1hOn869WW7uCnIHsxpnSK6E9LvZQ=&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Senolytics 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
