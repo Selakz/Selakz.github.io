@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="SenolyticsBlog">
 <meta property="og:description" content="0.3.4 更新内容 添加了切换为全屏模式的功能 添加了调整相机视角的功能 添加了位置指示器（可在设置中关闭） 添加了选中两个 Note 后按 H 键将其连接为 Hold 的功能  一. 项目结构1. 谱面工程一个包含了谱面编辑所需要的文件的文件夹被称为“谱面工程文件夹”。 初次创建谱面工程时，只需在文件夹里包含一个名为music.mp3的音源文件即可，在编辑器中选择该文件夹后，会自动在该文件夹内">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.senolytics.top/2025/01/28/takana-cubic-instruction/img/posts/takana/roll-over-cubic.png">
+<meta property="og:image" content="https://blog.senolytics.top/2025/01/28/takana-cubic-instruction/assets/imgs/posts/takana/roll-over-cubic.png">
 <meta property="article:published_time" content="2025-01-28T04:10:07.000Z">
 <meta property="article:modified_time" content="2025-10-11T15:54:00.000Z">
 <meta property="article:author" content="Senolytics">
@@ -34,12 +34,12 @@
 <meta property="article:tag" content="音游">
 <meta property="article:tag" content="谱面编辑器">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.senolytics.top/2025/01/28/takana-cubic-instruction/img/posts/takana/roll-over-cubic.png">
+<meta name="twitter:image" content="https://blog.senolytics.top/2025/01/28/takana-cubic-instruction/assets/imgs/posts/takana/roll-over-cubic.png">
   
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
   
-    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night.min.css" media="all"></link>
   
   <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
   <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
@@ -68,10 +68,10 @@
     
       @media(min-width:768px) {
         body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
         html[data-theme="dark"] body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
       }
     
@@ -116,9 +116,21 @@
                                             <a href="/archives/">
                                         
                                             
-                                                <i class="fa fa-file"></i>
+                                                <i class="fa fa-archive"></i>
                                             
-                                            档案馆
+                                            时间轴
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/tags/">
+                                        
+                                            
+                                                <i class="fa fa-tag"></i>
+                                            
+                                            标签
                                         </a>
                                         
                                     </li>
@@ -134,6 +146,15 @@
                                         </a>
                                         
                                             <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/2025/01/28/takana-cubic-instruction/">
+                                                            
+                                                                <i class="fa fa-music"></i>
+                                                            
+                                                            TAKANA³
+                                                        </a>
+                                                    </li>
                                                 
                                                     <li>
                                                         <a target="_blank" rel="noopener" href="https://github.com/Selakz/">
@@ -154,18 +175,6 @@
                                                     </li>
                                                 
                                             </ul>
-                                        
-                                    </li>
-                                
-                                    <li>
-                                        
-                                            <a href="/linklist-example/">
-                                        
-                                            
-                                                <i class="fa fa-link"></i>
-                                            
-                                            链接列表
-                                        </a>
                                         
                                     </li>
                                 
@@ -239,6 +248,10 @@
         <div class="kratos-page-content kr-post">
             
             
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-3-4-%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">0.3.4 更新内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">一. 项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B0%B1%E9%9D%A2%E5%B7%A5%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1. 谱面工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">2. 全局设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%80%BC%E5%BE%97%E8%AF%B4%E6%98%8E%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">2.3.</span> <span class="toc-text">3. 值得说明的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-UI"><span class="toc-number">3.</span> <span class="toc-text">二. UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A1%B6%E9%83%A8%E6%A0%8F"><span class="toc-number">3.1.</span> <span class="toc-text">1. 顶部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BA%95%E9%83%A8%E6%A0%8F"><span class="toc-number">3.2.</span> <span class="toc-text">2. 底部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%97%B6%E9%97%B4%E5%9D%97"><span class="toc-number">3.3.</span> <span class="toc-text">3. 时间块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%B3%E4%BE%A7%E9%9D%A2%E6%9D%BF"><span class="toc-number">3.4.</span> <span class="toc-text">4. 右侧面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91"><span class="toc-number">4.</span> <span class="toc-text">三. 谱面编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Note"><span class="toc-number">4.1.</span> <span class="toc-text">1. Note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%A8%E9%81%93"><span class="toc-number">4.2.</span> <span class="toc-text">2. 轨道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E7%82%B9"><span class="toc-number">4.3.</span> <span class="toc-text">3. 结点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9B%BE%E5%B1%82"><span class="toc-number">4.4.</span> <span class="toc-text">4. 图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-number">4.5.</span> <span class="toc-text">5. 复制粘贴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%95%9C%E5%83%8F"><span class="toc-number">4.6.</span> <span class="toc-text">6. 镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%BC%96%E8%BE%91%E9%9D%A2%E6%9D%BF"><span class="toc-number">4.7.</span> <span class="toc-text">7. 编辑面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%B0%B1%E9%9D%A2%E6%A0%BC%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">四. 谱面格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%A7%88"><span class="toc-number">5.1.</span> <span class="toc-text">1. 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%B1%E9%9D%A2%E5%85%83%E4%BB%B6"><span class="toc-number">5.2.</span> <span class="toc-text">2. 谱面元件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E9%99%84%E5%BD%95"><span class="toc-number">6.</span> <span class="toc-text">五. 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BC%93%E5%8A%A8%E5%90%8D%E7%A7%B0-%E7%BC%A9%E5%86%99-%E7%BC%96%E5%8F%B7%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-number">6.1.</span> <span class="toc-text">1. 缓动名称-缩写-编号对照表</span></a></li></ol></li></ol>
+                </div>
             
             <hr />
             <div itemprop="articleBody"><h2 id="0-3-4-更新内容"><a href="#0-3-4-更新内容" class="headerlink" title="0.3.4 更新内容"></a>0.3.4 更新内容</h2><ul>
@@ -869,7 +882,7 @@
     <div class="photo-background"></div>
     <div class="photo-wrapper clearfix">
         <div class="photo-wrapper-tip text-center">
-            <img class="about-photo" src="/images/user.svg" alt="Senolytics" loading="lazy" decoding="auto" />
+            <img class="about-photo" src="/assets/imgs/index/avatar.jpg" alt="Senolytics" loading="lazy" decoding="auto" />
         </div>
     </div>
     <div class="textwidget">
@@ -904,6 +917,18 @@
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-3-4-%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-text">0.3.4 更新内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">一. 项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B0%B1%E9%9D%A2%E5%B7%A5%E7%A8%8B"><span class="toc-text">1. 谱面工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE"><span class="toc-text">2. 全局设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%80%BC%E5%BE%97%E8%AF%B4%E6%98%8E%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">3. 值得说明的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-UI"><span class="toc-text">二. UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A1%B6%E9%83%A8%E6%A0%8F"><span class="toc-text">1. 顶部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BA%95%E9%83%A8%E6%A0%8F"><span class="toc-text">2. 底部栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%97%B6%E9%97%B4%E5%9D%97"><span class="toc-text">3. 时间块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%B3%E4%BE%A7%E9%9D%A2%E6%9D%BF"><span class="toc-text">4. 右侧面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91"><span class="toc-text">三. 谱面编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Note"><span class="toc-text">1. Note</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%BD%A8%E9%81%93"><span class="toc-text">2. 轨道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BB%93%E7%82%B9"><span class="toc-text">3. 结点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9B%BE%E5%B1%82"><span class="toc-text">4. 图层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">5. 复制粘贴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%95%9C%E5%83%8F"><span class="toc-text">6. 镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%BC%96%E8%BE%91%E9%9D%A2%E6%9D%BF"><span class="toc-text">7. 编辑面板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E8%B0%B1%E9%9D%A2%E6%A0%BC%E5%BC%8F"><span class="toc-text">四. 谱面格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A6%82%E8%A7%88"><span class="toc-text">1. 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%B1%E9%9D%A2%E5%85%83%E4%BB%B6"><span class="toc-text">2. 谱面元件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E9%99%84%E5%BD%95"><span class="toc-text">五. 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BC%93%E5%8A%A8%E5%90%8D%E7%A7%B0-%E7%BC%A9%E5%86%99-%E7%BC%96%E5%8F%B7%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-text">1. 缓动名称-缩写-编号对照表</span></a></li></ol></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
@@ -1002,8 +1027,8 @@
                             <li>建站时长：<span id="kr-since">Loading...</span></li>
                         </div>
                         <div>
-                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
-                            <li>站点由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                            <li>使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>本站由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 维护</li>
                         </div>
                         <!-- 额外的追加注入项 -->
                         

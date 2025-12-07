@@ -26,19 +26,19 @@
 <meta property="og:site_name" content="SenolyticsBlog">
 <meta property="og:description" content="前情提要学过软件工程课就应该对协变和逆变不陌生了。 协变（Covariant）指的是允许将子类型隐式转换为父类型，通常发生在函数的返回值中。 12class Derived : Base &#123; &#125;Derived GetData();  方法返回Derived，但基于继承的“is-a”特点，当然可以把返回值当成Base使用。 逆变（Contravariant）指的是允许将父类型隐式">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.senolytics.top/2025/12/02/co-and-contravariant/img/posts/stuff/zato.jpg">
+<meta property="og:image" content="https://blog.senolytics.top/2025/12/02/co-and-contravariant/assets/imgs/posts/stuff/zato.jpg">
 <meta property="article:published_time" content="2025-12-02T15:12:51.000Z">
-<meta property="article:modified_time" content="2025-12-02T16:22:22.092Z">
+<meta property="article:modified_time" content="2025-12-07T14:30:37.612Z">
 <meta property="article:author" content="Senolytics">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.senolytics.top/2025/12/02/co-and-contravariant/img/posts/stuff/zato.jpg">
+<meta name="twitter:image" content="https://blog.senolytics.top/2025/12/02/co-and-contravariant/assets/imgs/posts/stuff/zato.jpg">
   
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
   
-    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night.min.css" media="all"></link>
   
   <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
   <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
@@ -67,10 +67,10 @@
     
       @media(min-width:768px) {
         body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
         html[data-theme="dark"] body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
       }
     
@@ -115,9 +115,21 @@
                                             <a href="/archives/">
                                         
                                             
-                                                <i class="fa fa-file"></i>
+                                                <i class="fa fa-archive"></i>
                                             
-                                            档案馆
+                                            时间轴
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/tags/">
+                                        
+                                            
+                                                <i class="fa fa-tag"></i>
+                                            
+                                            标签
                                         </a>
                                         
                                     </li>
@@ -133,6 +145,15 @@
                                         </a>
                                         
                                             <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/2025/01/28/takana-cubic-instruction/">
+                                                            
+                                                                <i class="fa fa-music"></i>
+                                                            
+                                                            TAKANA³
+                                                        </a>
+                                                    </li>
                                                 
                                                     <li>
                                                         <a target="_blank" rel="noopener" href="https://github.com/Selakz/">
@@ -153,18 +174,6 @@
                                                     </li>
                                                 
                                             </ul>
-                                        
-                                    </li>
-                                
-                                    <li>
-                                        
-                                            <a href="/linklist-example/">
-                                        
-                                            
-                                                <i class="fa fa-link"></i>
-                                            
-                                            链接列表
-                                        </a>
                                         
                                     </li>
                                 
@@ -239,6 +248,10 @@
             
             
             
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98%E7%9A%84%E9%80%86%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">协变与逆变的逆转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%B2%E8%AF%9D"><span class="toc-number">3.</span> <span class="toc-text">闲话</span></a></li></ol>
+                </div>
+            
             <hr />
             <div itemprop="articleBody"><h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>学过软件工程课就应该对协变和逆变不陌生了。</p>
 <p>协变（Covariant）指的是允许将子类型隐式转换为父类型，通常发生在函数的返回值中。</p>
@@ -290,7 +303,7 @@
                     <a class="tag-none-link" href="/tags/C/" rel="tag">C#</a>, <a class="tag-none-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2025-12-02T16:22:22.092Z" itemprop="dateModified">最后编辑：2025-12-03</time>
+                    <time datetime="2025-12-07T14:30:37.612Z" itemprop="dateModified">最后编辑：2025-12-07</time>
                 </div>
             </div>
         </footer>
@@ -327,7 +340,7 @@
     <div class="photo-background"></div>
     <div class="photo-wrapper clearfix">
         <div class="photo-wrapper-tip text-center">
-            <img class="about-photo" src="/images/user.svg" alt="Senolytics" loading="lazy" decoding="auto" />
+            <img class="about-photo" src="/assets/imgs/index/avatar.jpg" alt="Senolytics" loading="lazy" decoding="auto" />
         </div>
     </div>
     <div class="textwidget">
@@ -362,6 +375,18 @@
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98%E7%9A%84%E9%80%86%E8%BD%AC"><span class="toc-text">协变与逆变的逆转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%B2%E8%AF%9D"><span class="toc-text">闲话</span></a></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
@@ -460,8 +485,8 @@
                             <li>建站时长：<span id="kr-since">Loading...</span></li>
                         </div>
                         <div>
-                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
-                            <li>站点由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                            <li>使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>本站由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 维护</li>
                         </div>
                         <!-- 额外的追加注入项 -->
                         

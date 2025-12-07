@@ -30,7 +30,7 @@
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
   
-    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night.min.css" media="all"></link>
   
   <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
   <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
@@ -59,10 +59,10 @@
     
       @media(min-width:768px) {
         body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
         html[data-theme="dark"] body.custom-background {
-          background-image: url('/assets/imgs/default_cover.jpg');
+          background-image: url('/assets/imgs/background.png');
         }
       }
     
@@ -107,9 +107,21 @@
                                             <a href="/archives/">
                                         
                                             
-                                                <i class="fa fa-file"></i>
+                                                <i class="fa fa-archive"></i>
                                             
-                                            档案馆
+                                            时间轴
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/tags/">
+                                        
+                                            
+                                                <i class="fa fa-tag"></i>
+                                            
+                                            标签
                                         </a>
                                         
                                     </li>
@@ -125,6 +137,15 @@
                                         </a>
                                         
                                             <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a href="/2025/01/28/takana-cubic-instruction/">
+                                                            
+                                                                <i class="fa fa-music"></i>
+                                                            
+                                                            TAKANA³
+                                                        </a>
+                                                    </li>
                                                 
                                                     <li>
                                                         <a target="_blank" rel="noopener" href="https://github.com/Selakz/">
@@ -145,18 +166,6 @@
                                                     </li>
                                                 
                                             </ul>
-                                        
-                                    </li>
-                                
-                                    <li>
-                                        
-                                            <a href="/linklist-example/">
-                                        
-                                            
-                                                <i class="fa fa-link"></i>
-                                            
-                                            链接列表
-                                        </a>
                                         
                                     </li>
                                 
@@ -272,23 +281,23 @@
     </header>
     <div class="kratos-page-content kr-search-input">
         <form class="input-group" onsubmit="return inpSearch();">
-            <input class="form-input input-lg" id="search-input" maxlength="80" name="s" placeholder="有什么想找找看的呢o(*￣▽￣*)ブ" required type="search">
-            <button class="btn btn-primary" type="submit">找一找~</button>
+            <input class="form-input input-lg" id="search-input" maxlength="80" name="s" placeholder="在这里输入搜索内容" required type="search">
+            <button class="btn btn-primary" type="submit">搜索🔍</button>
         </form>
     </div>
 </div>
 
 <div class="alert alert-info" id="kr-search-notice">
-    这里是 SenolyticsBlog 的搜索引擎~
+    大概可以在这边搜索 SenolyticsBlog 里的所有内容吧
 </div>
 
 <div id="kr-search-results">
     <div class="kratos-hentry kratos-page-inner clearfix">
         <div class="kratos-page-content kr-search-result">
-            <p>搜索多个关键词时请用空格分割，例如「面试 C# 设计模式」这样；</p>
-            <p>您也可以使用这些标签碰碰运气哦~</p>
+            <p>搜索多个关键词时请用空格分割，例如「C# 设计模式 博客」这样；</p>
+            <p>以下是可以参考的一些标签。</p>
             <p class="search-demo-tags">
-                <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px; color: #b2b7be">面试</a> <a href="/tags/C/" style="font-size: 18px; color: #b2b7be">C#</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 18px; color: #b2b7be">设计模式</a> <a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 18px; color: #b2b7be">聊天机器人</a> <a href="/tags/Unity/" style="font-size: 24px; color: #6c7588">Unity</a> <a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 24px; color: #6c7588">音游</a> <a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 24px; color: #6c7588">谱面编辑器</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 18px; color: #b2b7be">博客</a>
+                <a href="/tags/C/" style="font-size: 18px; color: #b2b7be">C#</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 18px; color: #b2b7be">设计模式</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 18px; color: #b2b7be">博客</a> <a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 18px; color: #b2b7be">聊天机器人</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 18px; color: #b2b7be">面试</a> <a href="/tags/Unity/" style="font-size: 24px; color: #6c7588">Unity</a> <a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 24px; color: #6c7588">音游</a> <a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 24px; color: #6c7588">谱面编辑器</a>
             </p>
         </div>
     </div>
@@ -351,7 +360,7 @@
     <div class="photo-background"></div>
     <div class="photo-wrapper clearfix">
         <div class="photo-wrapper-tip text-center">
-            <img class="about-photo" src="/images/user.svg" alt="Senolytics" loading="lazy" decoding="auto" />
+            <img class="about-photo" src="/assets/imgs/index/avatar.jpg" alt="Senolytics" loading="lazy" decoding="auto" />
         </div>
     </div>
     <div class="textwidget">
@@ -482,8 +491,8 @@
                             <li>建站时长：<span id="kr-since">Loading...</span></li>
                         </div>
                         <div>
-                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
-                            <li>站点由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                            <li>使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>本站由 <a href="https://github.com/Candinya/Kratos-Rebirth/graphs/contributors" target="_blank">Senolytics</a> 维护</li>
                         </div>
                         <!-- 额外的追加注入项 -->
                         
