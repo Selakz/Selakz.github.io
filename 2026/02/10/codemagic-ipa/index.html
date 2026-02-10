@@ -7,8 +7,8 @@
     <link rel="icon" href="/assets/favicon.ico">
   
   
-  <title>文章归档: 2025-01 | SenolyticsBlog</title>
-  <link rel="canonical" href="https://blog.senolytics.top/archives/2025/01/index.html">
+  <title>纯血Windows如何靠白嫖构建Unity应用ipa | SenolyticsBlog</title>
+  <link rel="canonical" href="https://blog.senolytics.top/2026/02/10/codemagic-ipa/">
   <meta name="author" content="Senolytics" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,15 +17,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="Unity, iOS" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="文章归档: 2025-01">
-<meta property="og:url" content="https://blog.senolytics.top/archives/2025/01/index.html">
+  <meta name="description" content="本文章记录我探索的一个无需MacOS构建Unity应用ipa的比较简单的免费方案。该方案有以下特点：  无需MacOS设备，无需苹果开发者账号，无需Unity Plus，无需任何费用 不适合频繁进行构建 只能生成无签名的ipa文件，即需要用Sideloadly等方式进行自签名  如果以上你能够接受，那么可以看看接下来的内容。 概述构建ipa之所以会成为一个问题，主要还是为了实现两个目的：免费和无需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯血Windows如何靠白嫖构建Unity应用ipa">
+<meta property="og:url" content="https://blog.senolytics.top/2026/02/10/codemagic-ipa/index.html">
 <meta property="og:site_name" content="SenolyticsBlog">
+<meta property="og:description" content="本文章记录我探索的一个无需MacOS构建Unity应用ipa的比较简单的免费方案。该方案有以下特点：  无需MacOS设备，无需苹果开发者账号，无需Unity Plus，无需任何费用 不适合频繁进行构建 只能生成无签名的ipa文件，即需要用Sideloadly等方式进行自签名  如果以上你能够接受，那么可以看看接下来的内容。 概述构建ipa之所以会成为一个问题，主要还是为了实现两个目的：免费和无需">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.senolytics.top/2026/02/10/codemagic-ipa/assets/imgs/posts/stuff/codemagic.jpg">
+<meta property="article:published_time" content="2026-02-10T14:30:00.000Z">
+<meta property="article:modified_time" content="2026-02-10T14:38:14.395Z">
 <meta property="article:author" content="Senolytics">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.senolytics.top/2026/02/10/codemagic-ipa/assets/imgs/posts/stuff/codemagic.jpg">
   
   <!-- 样式表文件 -->
   <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
@@ -210,101 +218,110 @@
 
         
 
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://blog.senolytics.top/2026/02/10/codemagic-ipa/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
             
-<style>
-  .post-meta time{color:#00a7e0}
-  @media (max-width:767px){.posts-collapse{margin:0 20px}
-  .posts-collapse .post-meta,
-  .posts-collapse .post-title{display:block;width:auto;text-align:left}}
-  .posts-collapse{position:relative}
-  .posts-collapse::after{content:" ";position:absolute;top:20px;left:0;margin-left:-2px;width:4px;height:calc(100% - 35px);background:#f5f5f5;z-index:-1}
-  @media (max-width:991px){.posts-collapse{margin:0 20px}}
-  .posts-collapse .collection-title{position:relative}
-  .posts-collapse .collection-title h1,
-  .posts-collapse .collection-title h2{margin-left:20px}
-  .posts-collapse .collection-title small{color:#bbb;margin-left:5px}
-  .posts-collapse .collection-title::before{content:" ";position:absolute;left:0;top:50%;margin-left:-4px;margin-top:-4px;width:8px;height:8px;background:#bbb;border-radius:50%}
-  .posts-collapse .post-header{position:relative;transition-duration:.2s;transition-timing-function:ease-in-out;transition-delay:0s;transition-property:border}
-  .posts-collapse .post-header::before{content:" ";position:absolute;left:0;top:12px;width:6px;height:6px;margin-left:-4px;background:#bbb;border-radius:50%;border:1px solid #fff;transition: all .3s ease-in-out}
-  .posts-collapse .post-header:hover{border-bottom-color:#666}
-  .posts-collapse .post-header:hover::before{background:#222}
-  .posts-collapse .post-meta{position:absolute;font-size:12px;left:20px;top:5px}
-  .posts-collapse .kr-comments-count{display:none}
-  .posts-collapse .post-title{margin-left:70px;font-size:16px;font-weight:400;line-height:inherit}
-  .posts-collapse .post-title::after{margin-left:3px;opacity:.6}
-  .posts-collapse .post-title a{color:#666;border-bottom:none}
-</style>
-
-  <article>
-      <div class="kratos-hentry kratos-page-inner clearfix">
-          <header class="kratos-page-header">
-            <h1 class="kratos-page-title text-center" itemprop="name headline">文章归档</h1>
-          </header>
-          <div class="kratos-page-content kr-archive">
-            <div id="archives">
-              <div class="post-block archive post" style="margin-left: 2em;">
-                <h3 class="archive-page-counter">当前共有 7 篇文章</h3>
-                <div class="posts-collapse">
-                  
-                  
-                    
-                    
-                      <!-- 没遇到Title的会被自动忽略年份，即使并不一致 -->
-                      
-                      <div class="collection-title">
-                        <a href="/archives/2025/"><h2 class="archive-year">2025</h2></a>
-                      </div>
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2025/01/28/takana-cubic-instruction/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">TAKANA³使用说明书 - 一文集合版</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2025-01-28T04:10:07.000Z">
-                              01-28
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
-                    
-                    
-                    
-                      <article class="post" itemscope itemtype="https://schema.org/Article">
-                        <header class="post-header">
-                          <h3 class="post-title">
-                            
-                                <a class="post-title-link" href="/2025/01/09/selenium-bot/" itemprop="mainEntityOfPage">
-                                  <span itemprop="name headline">SeleniumBot使用指南</span>
-                                </a>
-                            
-                          </h3>
-                          <div class="post-meta">
-                            <time class="post-time" itemprop="datePublished"
-                                  datetime="2025-01-09T08:56:00.000Z">
-                              01-09
-                            </time>
-                          </div>
-                        </header>
-                      </article>
-                    
-                  
+                <h1 class="kratos-page-title text-center" itemprop="name headline">纯血Windows如何靠白嫖构建Unity应用ipa</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="2026-02-10T14:30:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-02-10</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">Senolytics</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.70K
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9"><span class="toc-number">1.1.</span> <span class="toc-text">免费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E9%9C%80Mac"><span class="toc-number">1.2.</span> <span class="toc-text">无需Mac</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">事前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#codemagic-yaml"><span class="toc-number">3.</span> <span class="toc-text">codemagic.yaml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">构建你的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE%E5%A3%B0"><span class="toc-number">5.</span> <span class="toc-text">尾声</span></a></li></ol>
                 </div>
-              </div>
-            </div>
-        </div>
-      </div>
-      
-  </article>
+            
+            <hr />
+            <div itemprop="articleBody"><p>本文章记录我探索的一个无需MacOS构建Unity应用ipa的比较简单的免费方案。该方案有以下特点：</p>
+<ul>
+<li>无需MacOS设备，无需苹果开发者账号，无需Unity Plus，无需任何费用</li>
+<li>不适合频繁进行构建</li>
+<li>只能生成无签名的ipa文件，即需要用Sideloadly等方式进行自签名</li>
+</ul>
+<p>如果以上你能够接受，那么可以看看接下来的内容。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>构建ipa之所以会成为一个问题，主要还是为了实现两个目的：<strong>免费</strong>和<strong>无需Mac</strong>。</p>
+<h3 id="免费"><a href="#免费" class="headerlink" title="免费"></a>免费</h3><p>这个问题了解了ipa的构造后就很容易解决。ipa本质上也就是一个zip压缩包，里面的Payload文件夹就包含了应用程序本身的全部内容，而与Payload同级的大概就是签名相关的一些东西。Xcode中有构建成.app文件（实际上是一个文件夹，但在Mac上看起来就像一个文件）的选项，而这个文件就是应用程序的全部内容，把它移动到Payload文件夹里，再把Payload压缩成zip，这就是一个没有签名信息的ipa了，就可以直接Sideloadly了。</p>
+<h3 id="无需Mac"><a href="#无需Mac" class="headerlink" title="无需Mac"></a>无需Mac</h3><p>把源代码打包成.app文件的过程几乎必须在MacOS系统上才能完成，所以纯血Windows要打包无非两种选择：虚拟机和云服务。因为我的电脑存储捉急不支持我建虚拟机，所以下文将选择后者，并且其实很方便。</p>
+<h2 id="事前准备"><a href="#事前准备" class="headerlink" title="事前准备"></a>事前准备</h2><p>我选择的云服务平台是<a target="_blank" rel="noopener" href="https://codemagic.io/">Codemagic</a>，也没什么原因，就是问AI问出来的然后发现确实挺好用的。Codemagic是一个专注于移动端应用CI&#x2F;CD的平台，自然也包括Unity。它的一大优势就在于它为免费用户提供每月500分钟的免费构建时长，对我的<a target="_blank" rel="noopener" href="https://github.com/Selakz/TAKANA_Cubic">玩具小项目</a>来说是很够用了。</p>
+<p>Codemagic的常规操作是拉取仓库里的源代码进行构建，这很正常，CI&#x2F;CD就是这样的。但对本文来说这种方法行不通，看了Codemagic的官方文档就会发现，这种方法必须要求你有Unity的账户序列号，而免费License是没有序列号的，这就与我们的<strong>免费</strong>目标相悖了。</p>
+<p>好在这个平台的灵活度还是很高的，所以我们采取更直接的做法：<strong>在本地设备上导出Unity iOS源工程，让Codemagic直接拉取导出后的工程来打包</strong>。</p>
+<p>为了实现这一点，需要另外在github（或其他任何代码托管平台）上开一个仓库专门用来存储导出后的iOS源工程，由于导出的内容包含一些比较大的文件，请善用git LFS。免费github账户对LFS倒是也有限制，不过对我来说这个限制也是完全够用了。</p>
+<p>这里面还有一些稍微有点麻烦的事情，比如Unity导出iOS工程时会清除目标文件夹下原有的内容，这就意味着你得先把.git等东西移走，导出完再移回来。可以在项目里写一个实现<code>IPreprocessBuildWithReport</code> &#x2F; <code>IPostprocessBuildWithReport</code>接口的构建脚本来自动化这个过程。</p>
+<h2 id="codemagic-yaml"><a href="#codemagic-yaml" class="headerlink" title="codemagic.yaml"></a>codemagic.yaml</h2><p>为了让Codemagic知道要如何构建导出的东西，需要在仓库的根目录添加一个<code>codemagic.yaml</code>文件。这个文件的内容是固定的，这里给出一个可以用的版本，可以直接照抄，也可以自己到平台官网上参考具体语法。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">workflows:</span></span><br><span class="line">  <span class="attr">xcode-lfs-workflow:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">LFS</span> <span class="string">混合构建</span></span><br><span class="line">    <span class="attr">instance_type:</span> <span class="string">mac_mini_m2</span></span><br><span class="line">    <span class="attr">max_build_duration:</span> <span class="number">30</span> </span><br><span class="line">    <span class="attr">scripts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">验证</span> <span class="string">LFS</span> <span class="string">文件</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 检查最大的二进制库是否已从指针转为真实文件</span></span><br><span class="line"><span class="string">          ls -lh ./Libraries/libiPhone-lib.a </span></span><br><span class="line"><span class="string"></span>          </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">编译</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          xcodebuild build \</span></span><br><span class="line"><span class="string">            -project &quot;Unity-iPhone.xcodeproj&quot; \</span></span><br><span class="line"><span class="string">            -scheme &quot;Unity-iPhone&quot; \</span></span><br><span class="line"><span class="string">            -configuration Release \</span></span><br><span class="line"><span class="string">            -sdk iphoneos \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_ALLOWED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_REQUIRED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGN_IDENTITY=&quot;&quot; \</span></span><br><span class="line"><span class="string">            AD_HOC_CODE_SIGNING_ALLOWED=YES</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">打包</span> <span class="string">IPA</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          APP_DIR=$(find ~/Library/Developer/Xcode/DerivedData -name &quot;*.app&quot; | grep &quot;Release-iphoneos&quot; | head -n 1)</span></span><br><span class="line"><span class="string">          mkdir -p Payload</span></span><br><span class="line"><span class="string">          cp -r &quot;$APP_DIR&quot; Payload/</span></span><br><span class="line"><span class="string">          zip -r Final_Build.ipa Payload</span></span><br><span class="line"><span class="string"></span>    <span class="attr">artifacts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;*.ipa&quot;</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="构建你的应用"><a href="#构建你的应用" class="headerlink" title="构建你的应用"></a>构建你的应用</h2><p>一切准备就绪后，在Codemagic上注册账号，会进入“创建第一个应用”的引导页面，跟着步骤走，填之前创建的仓库的url即可，根据仓库可见性可能需要配置一下SSH密钥。你甚至不需要管任何的环境变量，就是非常简单。</p>
+<p><img src="/assets/imgs/posts/codemagic/codemagic1.jpg" alt="codemagic1.jpg"></p>
+<p>点击<code>Start New Build</code>，Codemagic就会在你的仓库中寻找根目录下有<code>codemagic.yaml</code>的分支，再点一次<code>Start New Build</code>，然后看着Codemagic把脚本一步步执行完，最后收获ipa即可。</p>
+<p><img src="/assets/imgs/posts/codemagic/codemagic2.jpg" alt="codemagic2.jpg"></p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>可以看到这种方法其实不仅仅适用于Unity应用，只要你有iOS源工程都是可以用这套流程变成ipa的，不过我也没用过Mac不知道其他的工程长什么样所以就不介绍了。</p>
+<p>这么总结下来好像看着还挺简单的，但是我当初探索这套流程真的花了整整一天。网上似乎也没有类似的文章，所以就做个记录吧。</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <span itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</span>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/Unity/" rel="tag">Unity</a>, <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-02-10T14:38:14.395Z" itemprop="dateModified">最后编辑：2026-02-10</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 参数中协变与逆变的倒转" href="/2025/12/02/co-and-contravariant/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            
+        </div>
+    
+</article>
 
         
 
@@ -315,8 +332,6 @@
 
 <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
-    
-        <div class="sticky-area">
     
     
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
@@ -357,6 +372,20 @@
     </div>
 </aside>
             
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9"><span class="toc-text">免费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E9%9C%80Mac"><span class="toc-text">无需Mac</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">事前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#codemagic-yaml"><span class="toc-text">codemagic.yaml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">构建你的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE%E5%A3%B0"><span class="toc-text">尾声</span></a></li></ol>
+    </div>
+</aside>
+                
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
