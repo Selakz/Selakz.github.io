@@ -19,16 +19,16 @@
   
     <meta name="keywords" content="Unity, 谱面编辑器, 音游" />
   
-  <meta name="description" content="0.3.5 更新内容 重构交互逻辑，除创建轨道外，其余选择和创建均无需按住Shift或Alt 新增Note的放置预览、复制粘贴预览、拖拽功能 新增轨道线结点的放置预览、复制粘贴预览、拖拽功能 支持同时编辑多个轨道，可在设置中调整 新增左右轨道线颜色区分功能 新增选中结点在编辑面板中的高亮显示 修改了谱面文件格式，旧格式谱面会自动进行转换 现在自定义曲绘在不满足比例时会放大而非拉伸  0.3.4 更">
+  <meta name="description" content="0.3.7 更新内容 优化纵向格线设置，可指定纵向格线颜色 添加了在任意轨道上放置Note的功能 添加了A&#x2F;←与D&#x2F;→键快速切换选中轨道的功能 添加了H键连接两个轨道的功能 添加了复制粘贴轨道时预览轨道位置的功能 添加了删除非法Note的功能 不打开编辑面板可提高选中轨道时的加载速度 现在将更可能一次选中你想要点的那个轨道 添加了英语本地化支持，可在工具面板切换 修复了复制轨道">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TAKANA³更新日志">
 <meta property="og:url" content="https://blog.senolytics.top/2025/09/19/takana-cubic-update-log/index.html">
 <meta property="og:site_name" content="SenolyticsBlog">
-<meta property="og:description" content="0.3.5 更新内容 重构交互逻辑，除创建轨道外，其余选择和创建均无需按住Shift或Alt 新增Note的放置预览、复制粘贴预览、拖拽功能 新增轨道线结点的放置预览、复制粘贴预览、拖拽功能 支持同时编辑多个轨道，可在设置中调整 新增左右轨道线颜色区分功能 新增选中结点在编辑面板中的高亮显示 修改了谱面文件格式，旧格式谱面会自动进行转换 现在自定义曲绘在不满足比例时会放大而非拉伸  0.3.4 更">
+<meta property="og:description" content="0.3.7 更新内容 优化纵向格线设置，可指定纵向格线颜色 添加了在任意轨道上放置Note的功能 添加了A&#x2F;←与D&#x2F;→键快速切换选中轨道的功能 添加了H键连接两个轨道的功能 添加了复制粘贴轨道时预览轨道位置的功能 添加了删除非法Note的功能 不打开编辑面板可提高选中轨道时的加载速度 现在将更可能一次选中你想要点的那个轨道 添加了英语本地化支持，可在工具面板切换 修复了复制轨道">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.senolytics.top/2025/09/19/takana-cubic-update-log/assets/imgs/posts/takana/roll-over-cubic.png">
 <meta property="article:published_time" content="2025-09-19T11:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-06T13:56:30.273Z">
+<meta property="article:modified_time" content="2026-03-01T13:05:48.910Z">
 <meta property="article:author" content="Senolytics">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="音游">
@@ -236,7 +236,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1037
+                            1395
                         
                         字
                     </li>
@@ -250,7 +250,27 @@
             
             
             <hr />
-            <div itemprop="articleBody"><h2 id="0-3-5-更新内容"><a href="#0-3-5-更新内容" class="headerlink" title="0.3.5 更新内容"></a>0.3.5 更新内容</h2><ul>
+            <div itemprop="articleBody"><h2 id="0-3-7-更新内容"><a href="#0-3-7-更新内容" class="headerlink" title="0.3.7 更新内容"></a>0.3.7 更新内容</h2><ul>
+<li>优化纵向格线设置，可指定纵向格线颜色</li>
+<li>添加了在任意轨道上放置Note的功能</li>
+<li>添加了A&#x2F;←与D&#x2F;→键快速切换选中轨道的功能</li>
+<li>添加了H键连接两个轨道的功能</li>
+<li>添加了复制粘贴轨道时预览轨道位置的功能</li>
+<li>添加了删除非法Note的功能</li>
+<li>不打开编辑面板可提高选中轨道时的加载速度</li>
+<li>现在将更可能一次选中你想要点的那个轨道</li>
+<li>添加了英语本地化支持，可在工具面板切换</li>
+<li>修复了复制轨道时其上的Note可能超出轨道范围的问题</li>
+<li>修复了一些其他的小问题</li>
+</ul>
+<h2 id="0-3-6-更新内容"><a href="#0-3-6-更新内容" class="headerlink" title="0.3.6 更新内容"></a>0.3.6 更新内容</h2><ul>
+<li>添加了入口界面，包括打开最近项目、创建新项目、导出游玩包、谱面转化等功能</li>
+<li>支持XW型轨道运动与贝塞尔型结点，暂时不支持可视化编辑</li>
+<li>支持将dakumi格式谱面转化为TAKANA³格式谱面</li>
+<li>修复了无法添加图层的bug</li>
+<li>一些小优化</li>
+</ul>
+<h2 id="0-3-5-更新内容"><a href="#0-3-5-更新内容" class="headerlink" title="0.3.5 更新内容"></a>0.3.5 更新内容</h2><ul>
 <li>重构交互逻辑，除创建轨道外，其余选择和创建均无需按住Shift或Alt</li>
 <li>新增Note的放置预览、复制粘贴预览、拖拽功能</li>
 <li>新增轨道线结点的放置预览、复制粘贴预览、拖拽功能</li>
@@ -342,7 +362,7 @@
                     <a class="tag-none-link" href="/tags/Unity/" rel="tag">Unity</a>, <a class="tag-none-link" href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" rel="tag">谱面编辑器</a>, <a class="tag-none-link" href="/tags/%E9%9F%B3%E6%B8%B8/" rel="tag">音游</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-01-06T13:56:30.273Z" itemprop="dateModified">最后编辑：2026-01-06</time>
+                    <time datetime="2026-03-01T13:05:48.910Z" itemprop="dateModified">最后编辑：2026-03-01</time>
                 </div>
             </div>
         </footer>
