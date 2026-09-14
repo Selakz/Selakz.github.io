@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.senolytics.top/2026/02/10/codemagic-ipa/assets/imgs/posts/stuff/codemagic.jpg">
 <meta property="article:published_time" content="2026-02-10T14:30:00.000Z">
-<meta property="article:modified_time" content="2026-02-10T14:38:14.395Z">
+<meta property="article:modified_time" content="2026-08-30T13:20:18.218Z">
 <meta property="article:author" content="Senolytics">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="iOS">
@@ -235,7 +235,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.70K
+                            ~2.69K
                         
                         字
                     </li>
@@ -269,7 +269,7 @@
 <p>为了实现这一点，需要另外在github（或其他任何代码托管平台）上开一个仓库专门用来存储导出后的iOS源工程，由于导出的内容包含一些比较大的文件，请善用git LFS。免费github账户对LFS倒是也有限制，不过对我来说这个限制也是完全够用了。</p>
 <p>这里面还有一些稍微有点麻烦的事情，比如Unity导出iOS工程时会清除目标文件夹下原有的内容，这就意味着你得先把.git等东西移走，导出完再移回来。可以在项目里写一个实现<code>IPreprocessBuildWithReport</code> &#x2F; <code>IPostprocessBuildWithReport</code>接口的构建脚本来自动化这个过程。</p>
 <h2 id="codemagic-yaml"><a href="#codemagic-yaml" class="headerlink" title="codemagic.yaml"></a>codemagic.yaml</h2><p>为了让Codemagic知道要如何构建导出的东西，需要在仓库的根目录添加一个<code>codemagic.yaml</code>文件。这个文件的内容是固定的，这里给出一个可以用的版本，可以直接照抄，也可以自己到平台官网上参考具体语法。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">workflows:</span></span><br><span class="line">  <span class="attr">xcode-lfs-workflow:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">LFS</span> <span class="string">混合构建</span></span><br><span class="line">    <span class="attr">instance_type:</span> <span class="string">mac_mini_m2</span></span><br><span class="line">    <span class="attr">max_build_duration:</span> <span class="number">30</span> </span><br><span class="line">    <span class="attr">scripts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">验证</span> <span class="string">LFS</span> <span class="string">文件</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 检查最大的二进制库是否已从指针转为真实文件</span></span><br><span class="line"><span class="string">          ls -lh ./Libraries/libiPhone-lib.a </span></span><br><span class="line"><span class="string"></span>          </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">编译</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          xcodebuild build \</span></span><br><span class="line"><span class="string">            -project &quot;Unity-iPhone.xcodeproj&quot; \</span></span><br><span class="line"><span class="string">            -scheme &quot;Unity-iPhone&quot; \</span></span><br><span class="line"><span class="string">            -configuration Release \</span></span><br><span class="line"><span class="string">            -sdk iphoneos \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_ALLOWED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_REQUIRED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGN_IDENTITY=&quot;&quot; \</span></span><br><span class="line"><span class="string">            AD_HOC_CODE_SIGNING_ALLOWED=YES</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">打包</span> <span class="string">IPA</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          APP_DIR=$(find ~/Library/Developer/Xcode/DerivedData -name &quot;*.app&quot; | grep &quot;Release-iphoneos&quot; | head -n 1)</span></span><br><span class="line"><span class="string">          mkdir -p Payload</span></span><br><span class="line"><span class="string">          cp -r &quot;$APP_DIR&quot; Payload/</span></span><br><span class="line"><span class="string">          zip -r Final_Build.ipa Payload</span></span><br><span class="line"><span class="string"></span>    <span class="attr">artifacts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;*.ipa&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">workflows:</span></span><br><span class="line">  <span class="attr">xcode-lfs-workflow:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">LFS</span> <span class="string">混合构建</span></span><br><span class="line">    <span class="attr">instance_type:</span> <span class="string">mac_mini_m2</span></span><br><span class="line">    <span class="attr">max_build_duration:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">scripts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">验证</span> <span class="string">LFS</span> <span class="string">文件</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 检查最大的二进制库是否已从指针转为真实文件</span></span><br><span class="line"><span class="string">          ls -lh ./Libraries/libiPhone-lib.a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Xcode</span> <span class="string">编译</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          xcodebuild build \</span></span><br><span class="line"><span class="string">            -project &quot;Unity-iPhone.xcodeproj&quot; \</span></span><br><span class="line"><span class="string">            -scheme &quot;Unity-iPhone&quot; \</span></span><br><span class="line"><span class="string">            -configuration Release \</span></span><br><span class="line"><span class="string">            -sdk iphoneos \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_ALLOWED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGNING_REQUIRED=NO \</span></span><br><span class="line"><span class="string">            CODE_SIGN_IDENTITY=&quot;&quot; \</span></span><br><span class="line"><span class="string">            AD_HOC_CODE_SIGNING_ALLOWED=YES</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">打包</span> <span class="string">IPA</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          APP_DIR=$(find ~/Library/Developer/Xcode/DerivedData -name &quot;*.app&quot; | grep &quot;Release-iphoneos&quot; | head -n 1)</span></span><br><span class="line"><span class="string">          mkdir -p Payload</span></span><br><span class="line"><span class="string">          cp -r &quot;$APP_DIR&quot; Payload/</span></span><br><span class="line"><span class="string">          zip -r Final_Build.ipa Payload</span></span><br><span class="line"><span class="string"></span>    <span class="attr">artifacts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;*.ipa&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="构建你的应用"><a href="#构建你的应用" class="headerlink" title="构建你的应用"></a>构建你的应用</h2><p>一切准备就绪后，在Codemagic上注册账号，会进入“创建第一个应用”的引导页面，跟着步骤走，填之前创建的仓库的url即可，根据仓库可见性可能需要配置一下SSH密钥。你甚至不需要管任何的环境变量，就是非常简单。</p>
 <p><img src="/assets/imgs/posts/codemagic/codemagic1.jpg" alt="codemagic1.jpg"></p>
@@ -301,7 +301,7 @@
                     <a class="tag-none-link" href="/tags/Unity/" rel="tag">Unity</a>, <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-02-10T14:38:14.395Z" itemprop="dateModified">最后编辑：2026-02-10</time>
+                    <time datetime="2026-08-30T13:20:18.218Z" itemprop="dateModified">最后编辑：2026-08-30</time>
                 </div>
             </div>
         </footer>
@@ -354,7 +354,7 @@
                 文章
             </span>
             <span class="count">
-                8
+                9
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -393,7 +393,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3/">文档</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%B0%E5%BD%95/">记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E6%A1%A3/">文档</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%B0%E5%BD%95/">记录</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">3</span></li></ul>
   </aside>
 
 
@@ -402,7 +402,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/AI/" style="font-size: 0.6em;">AI</a> <a href="/tags/C/" style="font-size: 0.6em;">C#</a> <a href="/tags/Unity/" style="font-size: 0.8em;">Unity</a> <a href="/tags/iOS/" style="font-size: 0.6em;">iOS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.7em;">博客</a> <a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 0.6em;">聊天机器人</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.6em;">设计模式</a> <a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 0.7em;">谱面编辑器</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.6em;">面试</a> <a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 0.7em;">音游</a>
+        <a href="/tags/AI/" style="font-size: 0.6em;">AI</a> <a href="/tags/C/" style="font-size: 0.6em;">C#</a> <a href="/tags/Unity/" style="font-size: 0.8em;">Unity</a> <a href="/tags/iOS/" style="font-size: 0.6em;">iOS</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.8em;">博客</a> <a href="/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 0.6em;">聊天机器人</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.6em;">设计模式</a> <a href="/tags/%E8%B0%B1%E9%9D%A2%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 0.7em;">谱面编辑器</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.6em;">面试</a> <a href="/tags/%E9%9F%B3%E6%B8%B8/" style="font-size: 0.7em;">音游</a>
       </div>
   </aside>
 
@@ -413,6 +413,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/09/14/di-in-unity/"><i class="fa fa-book"></i> Unity依赖注入较佳实践</a>
+            
+          
         
           
           
@@ -439,11 +445,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2025/03/13/first-interview/"><i class="fa fa-book"></i> 人生第一次面试的记录与复盘</a>
             
-          
-        
           
             
           
